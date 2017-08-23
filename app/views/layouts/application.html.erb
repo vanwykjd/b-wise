@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Workspace</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  
+  <head>
+    <title>Barweiser</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
 
-<%= yield %>
-
-</body>
+  <body>
+ 
+        <nav class="navbar">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#"><%= image_tag("BarweiserNew.png") %></a>
+            </div>
+        </nav>
+       
+        <div class="content container-fluid">
+          <%= yield %>
+        </div>
+     
+  </body>
 </html>
