@@ -12,13 +12,46 @@
   <body>
  
         <nav class="navbar">
-            <div class="navbar-header">
+          <div class="container-fluid">
+            <div class="navbar-header col-xs-6">
               <a class="navbar-brand" href="#"><%= image_tag("BarweiserNew.png") %></a>
             </div>
+            <% if user_signed_in? %>
+                <div class="navbar-sign-in col-xs-6">
+                    <%= link_to "SIGN OUT", destroy_user_session_path, method: :delete, class: 'btn sign-in-btn' %>
+                </div>
+              <% else %>
+              <div class="navbar-sign-in col-xs-6">
+                  <%= link_to "SIGN IN", new_user_session_path, class: 'btn sign-in-btn' %>                
+              </div>
+            <% end %>
+              
+          </div>
         </nav>
        
         <div class="content container-fluid">
+          
+          <div class="flash">
+             <% if flash[:notice] %>
+               <div class="alert alert-success">
+                 <button type="button" class="close" data-dismiss="alert">&times;</button>
+                 <%= flash[:notice] %>
+               </div>
+             <% elsif flash.now[:alert] %>
+               <div class="alert alert-danger">
+                 <button type="button" class="close" data-dismiss="alert">&times;</button>
+                 <%= flash.now[:alert] %>
+               </div>
+             <% elsif flash[:alert] %>
+               <div class="alert alert-warning">
+                 <button type="button" class="close" data-dismiss="alert">&times;</button>
+                 <%= flash[:alert] %>
+               </div>
+             <% end %>
+          </div>
+          
           <%= yield %>
+        
         </div>
      
   </body>

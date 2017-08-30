@@ -12,23 +12,28 @@ end
 # Development
 group :development do
   gem 'sqlite3'
+  gem 'web-console'
+  gem 'spring'
 end
 
 # Development Test
 group :development, :test do
+  gem 'factory_girl_rails', '~> 4.0'
+  gem 'faker'
   gem 'rspec-rails', '~> 3.0'
+  gem 'shoulda'
+  gem 'byebug'
+  gem 'capybara'
 end
 
-# Use Bootstrap framework for stylesheets
 gem 'bootstrap-sass'
-# Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
-# Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
-# Use jquery as the JavaScript library
+gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
+gem 'jbuilder', '~> 2.5'
+gem 'devise'
+gem 'bcrypt'
+gem 'figaro', '1.0'
 
