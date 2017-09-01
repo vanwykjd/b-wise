@@ -28,8 +28,18 @@ html, body {
 }
 
 body {
+    font-family: light,  'Roboto', sans-serif;
     height: auto;
     margin: 0;
+}
+
+a, label, h1, h2, h3, input  {
+  letter-spacing: 0.1em;
+  font-weight: 300;
+}
+
+h1, h2, h3 {
+  color: #B6B6B4;
 }
 
 .navbar {
@@ -41,6 +51,13 @@ body {
   height: 90px;
 }
 
+.section {
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: block;
+}
 
 .navbar .container-fluid {
   padding-left: 3%;
@@ -85,25 +102,101 @@ body {
 }
 
 .flash {
-  position: relative;
+  position: absolute;
   top: 90px;
-}
-
-.section {
-  overflow-x: hidden;
-  position: relative;
   width: 100%;
-  height: 100vh;
+  z-index: 9999;
 }
 
+
+
+
+/* devise classes */
 .devise-wrapper {
-  position: relative;
-  top: 90px;
-  padding-left: 3%;
-  padding-right: 3%;
+  margin-top: 110px;
+  width: 100vw;
+  height: auto;
+  text-align: center;
+}
+.devise-form {
+  display: block;
+  width: 500px;
+  margin: 0 auto;
+  text-align: center;
 }
 
+.new_user {
+  color: white;
+  font-weight: 300 !important;
+}
 
+.new_user .form-group > input  {
+  width: 500px;
+  background: none !important;
+  background-color: none !important;
+  outline: 0 !important;
+  border-width: 0 0 2px 0 !important;
+  border-color: #ccc !important;
+  margin-bottom: 10px;
+  padding-left: .5em;
+}
+
+.new_user .form-group > label  {
+  visibility: hidden;
+}
+
+.field_with_errors > input  {
+  width: 500px;
+  background: none !important;
+  background-color: rgba(255, 0, 0, 0.2) !important;
+  outline: 0 !important;
+  border-width: 2px !important;
+  border-radius: 4px !important;
+  border-color: rgba(255, 0, 0, 0.8) !important;
+ 
+  margin-bottom: 10px;
+}
+
+.actions > a {
+  width: 500px;
+  margin: 30px auto;
+}
+
+.log-in-btn {
+  background-color:rgba(0, 0, 0, 0.5);
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 30px;
+  width: 300px;
+  color: #ccc;
+}
+
+.sign-up-btn {
+  background-color:rgba(0, 0, 0, 0.5);
+  font-size: 16px;
+  border: 2px solid #F6E43B;
+  border-radius: 30px;
+  width: 300px;
+  color: #F6E43B;
+}
+
+.actions .log-in-btn >input {
+  background-color:rgba(0, 0, 0, 0.5);
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 30px;
+  width: 300px;
+  color: #ccc;
+}
+
+.actions .sign-up-btn >input {
+  background-color:rgba(0, 0, 0, 0.5);
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 30px;
+  width: 300px;
+  color: #ccc;
+}
 
 
 @media only screen and (max-width: 768px) {

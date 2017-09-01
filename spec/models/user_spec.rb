@@ -1,40 +1,29 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let(:user) { User.create!(name: "Bloccit User", email: "user@bloccit.com", password: "password") }
-   # Shoulda tests for name
-   it { is_expected.to validate_presence_of(:name) }
-   it { is_expected.to validate_length_of(:name).is_at_least(1) }
+   ## User Sign-up
  
-   # Shoulda tests for email
-   it { is_expected.to validate_presence_of(:email) }
-   it { is_expected.to validate_uniqueness_of(:email) }
-   it { is_expected.to validate_length_of(:email).is_at_least(3) }
-   it { is_expected.to allow_value("user@bloccit.com").for(:email) }
- 
-   # Shoulda tests for password
-   it { is_expected.to validate_presence_of(:password) }
-   it { is_expected.to have_secure_password }
-   it { is_expected.to validate_length_of(:password).is_at_least(6) }
- 
-   describe "attributes" do
-     it "should have name and email attributes" do
-       expect(user).to have_attributes(name: "Bloccit User", email: "user@bloccit.com")
-     end
-   end
+  # Shoulda tests for username
+    it { is_expected.to validate_presence_of(:username) }
+    it { is_expected.to validate_uniqueness_of(:username) }
+  
+  # Shoulda tests for email
+    it { is_expected.to validate_presence_of(:email) }
+    it { is_expected.to validate_uniqueness_of(:email) }
    
-   describe "invalid user" do
-     let(:user_with_invalid_name) { User.new(name: "", email: "user@bloccit.com") }
-     let(:user_with_invalid_email) { User.new(name: "Bloccit User", email: "") }
- 
-     it "should be an invalid user due to blank name" do
-       expect(user_with_invalid_name).to_not be_valid
-     end
- 
-     it "should be an invalid user due to blank email" do
-       expect(user_with_invalid_email).to_not be_valid
-     end
- 
-   end
+  # Shoulda tests for password and password_confirmation
+    it { is_expected.to validate_presence_of(:password) }
+    it { is_expected.to validate_presence_of(:password_confirmation) }
    
+   
+    describe "attributes" do 
+        it "should have a username, email, password and password confirmation" do
+            expect(new_user).to have_attributes( username: new_user.username, email: new_user.email, password: new_user.password, password_confirmation: new_user.password_confirmation)
+        end
+        
+        it "should confirm password confirmation is equal to password" do
+            expect(new_user.password_confirmation).to eq(new_user.password)
+        end
+    end
+    
 end

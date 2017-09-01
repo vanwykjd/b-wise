@@ -6,24 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag    'application', 'https://fonts.googleapis.com/css?family=Roboto:300,400' %>
+    <%= stylesheet_link_tag    'application', 'https://fonts.googleapis.com/css?family=Libre+Barcode+39+Text' %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
- 
-        <nav class="navbar">
-          <div class="container-fluid">
-            <div class="navbar-header col-xs-6">
-              <a class="navbar-brand" href="#"><%= image_tag("BarweiserNew.png") %></a>
-            </div>
+    <nav class="navbar">
+        <div class="container-fluid">
+            
             <% if user_signed_in? %>
+                <div class="navbar-header col-xs-6">
+                    <a><%= link_to image_tag("BarweiserNew.png"), user_path, class: 'navbar-brand' %></a>
+                </div>
                 <div class="navbar-sign-in col-xs-6">
-                    <%= link_to "SIGN OUT", destroy_user_session_path, method: :delete, class: 'btn sign-in-btn' %>
+                    <a><%= link_to "SIGN OUT", destroy_user_session_path, method: :delete, class: 'btn sign-in-btn' %></a>
                 </div>
               <% else %>
-              <div class="navbar-sign-in col-xs-6">
-                  <%= link_to "SIGN IN", new_user_session_path, class: 'btn sign-in-btn' %>                
-              </div>
+                  <div class="navbar-header col-xs-6">
+                      <a><%= link_to image_tag("BarweiserNew.png"), root_path, class: 'navbar-brand' %></a>
+                  </div>
+                  <div class="navbar-sign-in col-xs-6">
+                      <a><%= link_to "SIGN IN", new_user_session_path, class: 'btn sign-in-btn' %></a>               
+                  </div>
             <% end %>
               
           </div>
