@@ -1,63 +1,141 @@
 <!DOCTYPE html>
 <html>
   
-  <head>
-    <title>Barweiser</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= stylesheet_link_tag    'application', 'https://fonts.googleapis.com/css?family=Roboto:300,400' %>
-    <%= stylesheet_link_tag    'application', 'https://fonts.googleapis.com/css?family=Libre+Barcode+39+Text' %>
-    <%= csrf_meta_tags %>
-  </head>
+    <head>
+        <title>Barweiser</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <%= stylesheet_link_tag    'application', 'https://fonts.googleapis.com/css?family=Roboto:300,400' %>
+        <%= stylesheet_link_tag    'application', 'https://fonts.googleapis.com/css?family=Libre+Barcode+39+Text' %>
+        <%= csrf_meta_tags %>
+    </head>
 
-  <body>
-    <nav class="navbar">
-        <div class="container-fluid">
-            
-            <% if user_signed_in? %>
-                <div class="navbar-header col-xs-6">
-                    <a><%= link_to image_tag("BarweiserNew.png"), user_path, class: 'navbar-brand' %></a>
-                </div>
-                <div class="navbar-sign-in col-xs-6">
-                    <a><%= link_to "SIGN OUT", destroy_user_session_path, method: :delete, class: 'btn sign-in-btn' %></a>
-                </div>
-              <% else %>
-                  <div class="navbar-header col-xs-6">
-                      <a><%= link_to image_tag("BarweiserNew.png"), root_path, class: 'navbar-brand' %></a>
-                  </div>
-                  <div class="navbar-sign-in col-xs-6">
-                      <a><%= link_to "SIGN IN", new_user_session_path, class: 'btn sign-in-btn' %></a>               
-                  </div>
-            <% end %>
+    <body>
+    
+            <!-- DESKTOP NAV -->
+            <div id="desktop" class="hidden-xs">
+                    <nav class="navbar navbar-static-top">
+                        <div class="container-fluid">
+                            
+                            <% if user_signed_in? %>
+                                <div id="logo" class="col-xs- col-sm-4">
+                                    <div class="navbar-header">
+                                        <%= link_to image_tag("Barweiser_Full_Wht.png"), root_path, class: 'navbar-brand' %>
+                                    </div>
+                                </div>
+                                <div id="user" class="col-xs-12 col-sm-4">
+                                    <div class="navbar-user">
+                                        <div class="user-heading"><%= current_user.username.capitalize! %></div>
+                                    </div>
+                                </div>
+                                <div id="links" class="col-xs-12 col-sm-4">
+                                    <div class="navbar-links">
+                                        <%= link_to "SIGN OUT", destroy_user_session_path, method: :delete %>
+                                    </div>
+                                </div>
+                            <% else %>
+                                <div id="logo" class="col-xs-12 col-sm-4">
+                                    <div class="navbar-header">
+                                        <%= link_to image_tag("Barweiser_Full_Wht.png"), root_path, class: 'navbar-brand' %>
+                                    </div>
+                                </div>
+                                <div id="user" class="col-xs-12 col-sm-4">
+                                    <div class="navbar-user">
+                                    </div>
+                                </div>
+                                <div id="links" class="col-xs-12 col-sm-4">
+                                    <div class="navbar-links">
+                                        <%= link_to "SIGN UP", new_user_registration_path %>
+                                        <%= link_to "SIGN IN", new_user_session_path %>
+                                    </div>
+                                </div>
+                            <% end %>
+                        
+                        </div>
+                    </nav>
               
-          </div>
-        </nav>
-       
-        <div class="content container-fluid">
-          
-          <div class="flash">
-             <% if flash[:notice] %>
-               <div class="alert alert-success">
-                 <button type="button" class="close" data-dismiss="alert">&times;</button>
-                 <%= flash[:notice] %>
-               </div>
-             <% elsif flash.now[:alert] %>
-               <div class="alert alert-danger">
-                 <button type="button" class="close" data-dismiss="alert">&times;</button>
-                 <%= flash.now[:alert] %>
-               </div>
-             <% elsif flash[:alert] %>
-               <div class="alert alert-warning">
-                 <button type="button" class="close" data-dismiss="alert">&times;</button>
-                 <%= flash[:alert] %>
-               </div>
-             <% end %>
-          </div>
-          
-          <%= yield %>
-        
-        </div>
-     
-  </body>
+            </div>
+            
+            <!-- MOBILE NAV -->
+            <div id="mobile" class="visible-xs">
+                
+                    <nav class="navbar navbar-static-top">
+                        <div class="container-fluid">
+                            <% if user_signed_in? %>
+                                <div id="logo" class="col-xs-6">
+                                    <div class="navbar-header">
+                                        <%= link_to image_tag("Barweiser_Full_Wht.png"), root_path, class: 'navbar-brand' %>
+                                    </div>
+                                </div>
+                                
+                                <div class="navbar-links">
+                                    <div class="mobile-nav" data-toggle="dropdown-menu" aria-haspopup="true" aria-expanded="true">
+                                        <span class="glyphicon glyphicon-menu-hamburger"></span>
+                                    </div>
+                                    
+                                    <div class="dropdown-menu">
+                                        <%= link_to "SIGN OUT", destroy_user_session_path, method: :delete %>
+                                        <footer>
+                                            <%= link_to image_tag("Barweiser_Full_Blk.png"), root_path, class: 'navbar-brand' %>
+                                        </footer>
+                                    </div>
+                                </div>
+                                
+                            <% else %>
+                                <div id="logo" class="col-xs-6">
+                                    <div class="navbar-header">
+                                        <%= link_to image_tag("Barweiser_Full_Wht.png"), root_path, class: 'navbar-brand' %>
+                                    </div>
+                                </div>
+                                
+         
+                                <div class="navbar-links">
+                                    <div class="mobile-nav" data-toggle="dropdown-menu" aria-haspopup="true" aria-expanded="true">
+                                        <span class="glyphicon glyphicon-menu-hamburger"></span>
+                                    </div>
+                                    
+                                    <div class="dropdown-menu">
+                                        <%= link_to "SIGN UP", new_user_registration_path %>
+                                        <%= link_to "SIGN IN", new_user_session_path %>
+                                        <footer>
+                                            <%= link_to image_tag("Barweiser_Full_Blk.png"), root_path, class: 'navbar-brand' %>
+                                        </footer>
+                                    </div>
+                                </div>
+                        
+                            <% end %>
+                        </div>
+                    </nav>
+ 
+            </div>
+            
+            <!-- FLASH NOTICE -->
+            <div class="flash">
+                <% if flash[:notice] %>
+                    <div class="alert alert-success">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <%= flash[:notice] %>
+                    </div>
+                <% elsif flash.now[:alert] %>
+                    <div class="alert alert-danger">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                         <%= flash.now[:alert] %>
+                    </div>
+                <% elsif flash[:alert] %>
+                    <div class="alert alert-warning">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                         <%= flash[:alert] %>
+                    </div>
+                <% end %>
+            </div>
+            
+            <!-- APP CONTENT -->
+            <div class="content-wrap">
+                <%= yield %>
+            </div>
+            
+    
+    </body>
+    
 </html>

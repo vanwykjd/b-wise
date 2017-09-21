@@ -1,34 +1,39 @@
+<section class="log-in">
 
-<div class="devise-wrapper">
-<h2>Log in</h2>
-
-   <div class="devise-form">
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+ <%= link_to image_tag("BarweiserSpot.png"), root_path  %>
+  <h3>Log in</h3>
+       <div class="devise-form">
+         
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       
-          <div class="form-group">
-            <%= f.label :log_in %>
-            <%= f.text_field :log_in, class: 'form-control', placeholder: "Enter username or email" %>
-          </div>
-          <div class="form-group">
-            <%= f.label :password %>
-            <%= f.password_field :password, class: 'form-control', placeholder: "Enter password" %>
-          </div>
-
-          <% if devise_mapping.rememberable? -%>
-              <div class="field">
-                <%= f.label :remember_me %>
-                <%= f.check_box :remember_me %>
+              <div class="form-group">
+                <%= f.text_field :log_in, class: 'form-control', placeholder: "USERNAME / EMAIL" %>
               </div>
-          <% end %>
-
-        <div class="actions">
-          <%= f.submit "Log in", class: 'btn log-in-btn'%>
-        </div>
-    <% end %>
-
-    <%= render "devise/shared/links" %>
-  </div>
-</div>
-
+              <div class="form-group">
+                <%= f.password_field :password, class: 'form-control', placeholder: "PASSWORD" %>
+              </div>
+    
+              <% if devise_mapping.rememberable? -%>
+                  <div class="field">
+                    <%= f.label :remember_me %>&nbsp
+                    <%= f.check_box :remember_me %>
+                    
+                  </div>
+              <% end %>
+    
+            <div class="actions">
+              <%= f.submit "LOG IN", class: 'btn log-in-btn'%>
+            </div>
+        <% end %>
+      </div>
+      <div class="divider">
+          OR
+      </div>
+    
+      
+    <%= render "users/shared/links" %>
+    
+   <%= image_tag("SpotlightShadow.png") %>
+</section>
 
 

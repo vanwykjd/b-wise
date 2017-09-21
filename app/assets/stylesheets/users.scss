@@ -1,9 +1,6 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-#user-index {
-  background: url(BCircle675.png) no-repeat center center; ;
-}
 
 .user-index-content {
   position: relative;
@@ -13,13 +10,12 @@
 }
 
 .user-heading {
-  display: block;
   font-family: 'Libre Barcode 39 Text', cursive;
+  vertical-align: middle;
+  font-size: 50px;
+  padding: 15px;
+  margin-top: 0px;
+  margin-bottom: 0px;
   color: #B6B6B4;
   text-transform: uppercase;
-  font-size: 110%;
-  height: 90px;
-  width: 100%;
-  padding-top: 15px;
-  padding-bottom: 15px;
 }

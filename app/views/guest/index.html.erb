@@ -1,23 +1,35 @@
-<div id="guest-home">
-    <div class="section" id="welcome">
-       <div class="welcome-content">
-           <div class="top-header col-xs-12">
-               <%= image_tag ("BeWise.png") %>
-           </div>
-           
-            <div class="create-acct col-xs-12 ">
-                <h1>Know your customers.</h1>
+<section id="guest-index" class="index">
+    <div class="index-banner">
+        <div class="banner-mid-content">
+            <div class="banner-greeting">
+                <h1>Know your customer.</h1>
                 <h3>MINE YOUR DATA. MIND YOUR BUSINESS.</h3>
-                 <%= link_to "CREATE YOUR ACCOUNT", new_user_registration_path, class: 'btn create-acct-btn' %>
+                <%= link_to "CREATE YOUR ACCOUNT", new_user_registration_path, class: 'btn index-sing-up-btn' %>
             </div>
-           
-           <div class="bottom-header col-xs-12">
-               <%= image_tag ("UseBarweiser.png") %>
-           </div>
-       </div>
+        </div>
     </div>
-    <div class="section" id="bottom"></div>
-</div>
+</section>
+
+
+<section id="info">
+    <div class="nav">
+       
+            <div class="info-tab" id="about">
+                THE SERVICE
+            </div>
+     
+      
+            <div class="info-tab" id="service">
+                THE DATA
+            </div>
+      
+    
+            <div class="info-tab" id="packages">
+                THE PRICE
+            </div>
+ 
+    </div>
+</section>
 
 
 
