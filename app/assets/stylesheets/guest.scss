@@ -81,17 +81,65 @@
 
 .info-tab {
   display: inline-block;
-  height: 150px;
-  padding-top: 50px;
-  color: #fff;
+  height: 145px;
+  color: #ccc;
   font-size: 24px;
   width: 30%;
+  margin-top: 0;
 }
 
-.info-tab:active {
+.info-tab:hover {
   border-bottom: 5px solid red;
 }
 
+.info-tab > a {
+  display: block;
+  height: 50%;
+  padding: 15px 0px;
+  text-decoration: none;
+}
+
+.info-tab:hover > a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#about {
+  display: block;
+  background-image: url(glyphicons-372-global@2x-wht.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  opacity: 0.5;
+  height: 50%;
+}
+
+.info-tab:hover > #about {
+  opacity: 1;
+}
+
+#service {
+  background-image: url(glyphicons-42-charts-wht.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  opacity: 0.5;
+  height: 50%;
+}
+
+.info-tab:hover > #service {
+  opacity: 1;
+}
+
+#packages {
+  background-image: url(glyphicons-67-tags-wht.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  opacity: 0.5;
+  height: 50%;
+}
+
+.info-tab:hover > #packages {
+  opacity: 1;
+}
 
 @media (max-width: 780px) {
   .banner-greeting h1 {
@@ -113,8 +161,7 @@
   }
   
   .info-tab {
-    height: 100px;
-    padding-top: 40px;
+    height: 95px;
     font-size: 16px;
   }
 }
@@ -157,6 +204,7 @@
   
   .info-tab {
     font-size: 14px;
+    height: 95px;
   }
   
 }
